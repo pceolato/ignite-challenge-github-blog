@@ -1,5 +1,5 @@
 import { useBlog } from "../../../../hooks/useBlog";
-import { formatDistance, subDays } from 'date-fns'
+import { formatDistanceToNowStrict } from 'date-fns'
 import { CardPost } from "./CardPost";
 
 export function ListCardPost() {
@@ -9,7 +9,7 @@ export function ListCardPost() {
     return (
         <div className="flex flex-wrap gap-8 mt-12">
             { issues.map(issue => {
-                const date = formatDistance(Date.parse(issue.date), new Date(), { addSuffix: true })
+                const date = formatDistanceToNowStrict(Date.parse(issue.date))
                 
                 return <CardPost key={issue.title} title={issue.title} description={issue.content} date={date}/>
                 }) }
