@@ -16,18 +16,18 @@ interface ProfileType {
 }
 
 interface ProfileContextType {
-    profile: ProfileType
+    profileData: ProfileType
 }
 
 export const ProfileContext = createContext({} as ProfileContextType)
 
 export function ProfileProvider({ children }: ProfileContextProps) {
-    const [ profile, setProfile ] = useState({} as ProfileType)
+    const [ profileData, setProfileData ] = useState({} as ProfileType)
 
     async function fetchProfile() {
         const { data } = await api.get('')
 
-        setProfile({
+        setProfileData({
             name: data.name,
             avatar: data.avatar_url,
             user: data.login,
@@ -38,14 +38,12 @@ export function ProfileProvider({ children }: ProfileContextProps) {
         })
 
     }
-    console.log(profile)
-
-
+    
     useEffect(() => {
         fetchProfile()
     }, [])
     return (
-        <ProfileContext.Provider value={{profile}}>
+        <ProfileContext.Provider value={{profileData}}>
             { children }
         </ProfileContext.Provider>
     )
