@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { api } from "../lib/axios";
 
-interface ProfileContextProps {
+interface ProfileProviderProps {
     children: ReactNode
 }
 
@@ -21,11 +21,11 @@ interface ProfileContextType {
 
 export const ProfileContext = createContext({} as ProfileContextType)
 
-export function ProfileProvider({ children }: ProfileContextProps) {
+export function ProfileProvider({ children }: ProfileProviderProps) {
     const [ profileData, setProfileData ] = useState({} as ProfileType)
 
     async function fetchProfile() {
-        const { data } = await api.get('')
+        const { data } = await api.get('/users/pceolato')
 
         setProfileData({
             name: data.name,

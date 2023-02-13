@@ -1,9 +1,13 @@
+import { useBlog } from "../../../hooks/useBlog"
+
 export function Form() {
+    const { totalIssues } = useBlog()
+
     return (
         <div className="flex flex-col gap-3 mt-[72px]">
             <div className="flex justify-between items-center">
                 <h3 className="text-base-subtitle bold text-lg">Publicações</h3>
-                <span className="text-base-span text-sm">6 publicações</span>
+                <span className="text-base-span text-sm">{totalIssues} publicações</span>
             </div>
             <input 
                 type="text"
