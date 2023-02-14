@@ -22,7 +22,7 @@ export function Profile() {
                 <p className="text-base-text mb-6">
                     {profileData.bio}
                 </p>
-                <div className="flex gap-6">
+                <div className="flex flex-col md:flex-row gap-6">
                     <div className="flex items-center gap-2">
                         <FontAwesomeIcon icon={faGithub} width={18} height={18} color="#3A536B"/>
                         <span className="text-base-subtitle">{profileData.user}</span>

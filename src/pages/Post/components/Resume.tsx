@@ -19,8 +19,8 @@ export function Resume() {
                 </div>
                 <div className="flex flex-col gap-2">
                     <h1 className="text-base-title font-bold text-2xl">JavaScript data types and data structures</h1>
-                    <div className="flex gap-8 mt-2">
-                        <div className="flex items-center gap-2">
+                    <div className="flex flex-col md:flex-row gap-3 md:gap-8 mt-2">
+                        <div className="flex  items-center gap-2">
                             <FontAwesomeIcon icon={faGithub} width={18} height={18} color="#3A536B" />
                             <span className="text-base-span">pceolato</span>
                         </div>
