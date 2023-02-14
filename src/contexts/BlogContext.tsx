@@ -6,6 +6,7 @@ interface BlogProviderProps {
 }
 
 interface IssuesType {
+    id: string
     title: string
     content: string
     date: string
@@ -34,13 +35,14 @@ export function BlogProvider({ children }: BlogProviderProps) {
 
         const issuesTotal:IssuesType[]  = []
 
-        data.items.map((post: any) => {
+        data.items.map((issue: any) => {
             issuesTotal.push({
-                title: post.title,
-                content: post.body,
-                date: post.created_at,
-                comments: post.comments,
-                url: post.html_url
+                id: issue.id,
+                title: issue.title,
+                content: issue.body,
+                date: issue.created_at,
+                comments: issue.comments,
+                url: issue.html_url
             })
         });
 
