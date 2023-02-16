@@ -8,18 +8,10 @@ import { formatDistanceToNowStrict } from "date-fns";
 import pt from 'date-fns/locale/pt-BR';
 
 export function Resume() {
-    const { postNumber } = useParams()
-    const { fetchPostById, postById } = useBlog()
+    const { postById } = useBlog()
 
     const date = postById.date && formatDistanceToNowStrict(Date.parse(postById.date), { locale: pt })
     
-    function getPost() {
-        fetchPostById(Number(postNumber))
-    }
-    
-    useEffect(() => {
-        getPost()
-    }, [])
     return (
         <div className="py-8 px-10 bg-base-profile rounded-[10px] shadow-base-profile -mt-[88px]">
             <div className="flex flex-col gap-5">

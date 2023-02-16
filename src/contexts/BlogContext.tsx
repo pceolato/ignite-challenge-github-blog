@@ -21,6 +21,7 @@ interface BlogContextProps {
     totalPosts: number
     postById: PostsType
     fetchPostById: (id: number) => void;
+    searchPost: (content: string) => void;
 }
 
 export const BlogContext = createContext({} as BlogContextProps)
@@ -58,6 +59,8 @@ export function BlogProvider({ children }: BlogProviderProps) {
     }
 
     async function fetchPostById(number: number) {
+        setPostById({} as PostsType)
+
         const { data }  = await api.get(`/repos/pceolato/ignite-challenge-github-blog/issues/${number}`)
 
         setPostById({
@@ -72,12 +75,39 @@ export function BlogProvider({ children }: BlogProviderProps) {
         })
     }
 
+    async function searchPost(content: string) {
+        const { data }  = await api.get('/search/issues', {
+            params: {
+                q:  `${content}repo:pceolato/ignite-challenge-github-blog`
+            }
+        }
+        )
+
+        const postsTotal:PostsType[]  = []
+
+        data.items?.map((post: any) => {
+            postsTotal.push({
+                id: post.id,
+                user: post.user.login,
+                number: post.number,
+                title: post.title,
+                content: post.body,
+                date: post.created_at,
+                comments: post.comments,
+                url: post.html_url
+            })
+        });
+
+        setPosts(postsTotal)
+        setTotalPosts(data.total_count)
+    }
+
     useEffect(() => {
         fetchAllPosts()
     }, [])
 
     return (
-        <BlogContext.Provider value={{ posts, totalPosts, fetchPostById, postById }}>
+        <BlogContext.Provider value={{ posts, totalPosts, fetchPostById, postById, searchPost }}>
             {children}
         </BlogContext.Provider>
     )
