@@ -24,6 +24,9 @@ module.exports = {
       },
       boxShadow: {
         'base-profile': '0px 2px 28px rgba(0, 0, 0, 0.2)' 
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
       }
     },
   },
