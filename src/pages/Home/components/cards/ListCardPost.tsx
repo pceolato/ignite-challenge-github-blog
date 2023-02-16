@@ -4,17 +4,18 @@ import pt from 'date-fns/locale/pt-BR';
 import { CardPost } from "./CardPost";
 
 export function ListCardPost() {
-    const { issues } = useBlog()
+    const { posts } = useBlog()
 
 
     return (
         <div className="flex flex-wrap gap-8 mt-12">
-            {issues.map(issue => {
+            {posts.map(issue => {
                 const date = formatDistanceToNowStrict(Date.parse(issue.date), { locale: pt })
 
                 return (
                     <CardPost
                         id={issue.id}
+                        number={issue.number}
                         key={issue.id}
                         title={issue.title}
                         description={issue.content}
