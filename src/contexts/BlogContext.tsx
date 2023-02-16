@@ -20,8 +20,9 @@ interface BlogContextProps {
     posts: PostsType[]
     totalPosts: number
     postById: PostsType
-    fetchPostById: (id: number) => void;
-    searchPost: (content: string) => void;
+    fetchAllPosts: () => Promise<void>;
+    fetchPostById: (id: number) => Promise<void>;
+    searchPost: (content: string) => Promise<void>;
 }
 
 export const BlogContext = createContext({} as BlogContextProps)
@@ -107,7 +108,7 @@ export function BlogProvider({ children }: BlogProviderProps) {
     }, [])
 
     return (
-        <BlogContext.Provider value={{ posts, totalPosts, fetchPostById, postById, searchPost }}>
+        <BlogContext.Provider value={{ posts, totalPosts, fetchPostById, postById, searchPost, fetchAllPosts }}>
             {children}
         </BlogContext.Provider>
     )
