@@ -5,7 +5,7 @@ export function ContentPost() {
     const { postById } = useBlog()
     return (
         <div className="py-10 px-0 md:px-10">
-            <p className="text-base-text">
+            <div className="text-base-text">
                 <ReactMarkdown
                     components={{
                         a: ({node, ...props}) => <a className="text-blue" {...props}></a>
@@ -14,7 +14,7 @@ export function ContentPost() {
                 >
                     {postById.content}
                 </ReactMarkdown>
-            </p>
+            </div>
         </div>
     )
 }

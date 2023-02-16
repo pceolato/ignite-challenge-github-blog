@@ -18,16 +18,15 @@ export function CardPost({ id, title, description, date, number }: CardPostProps
                 <h2 className="text-base-title font-bold text-xl flex-1">{title}</h2>
                 <span className="text-base-span text-sm">Há {date}</span>
             </div>
-            <p className="text-base-text">
-            <ReactMarkdown
-                    components={{
-                        a: ({node, ...props}) => <a className="text-blue" {...props}></a>
-                    }}
-                    linkTarget="_blank"
-                >
-                {content}
-            </ReactMarkdown>
-            </p>
+            <div className="text-base-text">
+                <ReactMarkdown
+                        components={{
+                            a: ({node, ...props}) => <span {...props}></span>
+                        }}
+                    >
+                    {content}
+                </ReactMarkdown>
+            </div>
         </NavLink>
     )
 }
