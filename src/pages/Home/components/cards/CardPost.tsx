@@ -10,8 +10,8 @@ interface CardPostProps {
 }
 
 export function CardPost({ id, title, description, date, number }: CardPostProps) {
-    const content = `${description.slice(0, 180)} ...`
-
+    const content = `${description.slice(0, 180)}...`
+        
     return (
         <NavLink to={`posts/${number}`} className="w-full lg:w-[416px]  p-8 flex flex-col gap-5 bg-base-post rounded-[10px] border-2 border-transparent hover:border-2 hover:border-base-label">
             <div className="flex gap-4">
