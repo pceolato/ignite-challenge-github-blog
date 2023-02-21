@@ -7,7 +7,7 @@
 <br/>
 
 <div>
-    <img style="" src="https://user-images.githubusercontent.com/88351152/211886387-8e9d46a1-c30f-4dcf-ba68-bdd0c8351e2e.png" alt="Imagem do projeto"/>
+    <img style="" src="https://user-images.githubusercontent.com/88351152/220216078-efe8a413-8860-47b6-8bbb-e2f6db7392ac.png" alt="Imagem do projeto"/>
 </div>
 
 <br/>
