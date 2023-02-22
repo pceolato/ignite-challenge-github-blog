@@ -35,7 +35,6 @@ export function Post() {
                     </div>
                 )
             }
-            
         </div>
     )
 }
