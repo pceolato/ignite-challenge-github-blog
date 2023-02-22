@@ -103,10 +103,6 @@ export function BlogProvider({ children }: BlogProviderProps) {
         setTotalPosts(data.total_count)
     }
 
-    useEffect(() => {
-        fetchAllPosts()
-    }, [])
-
     return (
         <BlogContext.Provider value={{ posts, totalPosts, fetchPostById, postById, searchPost, fetchAllPosts }}>
             {children}
