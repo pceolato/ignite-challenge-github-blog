@@ -1,4 +1,4 @@
-# Github Bolg
+# Github Blog
 
 ## Aplicação desenvolvida para o desafio "Github Blog" da trilha ignite-react da <a href="https://www.rocketseat.com.br">Rocketseat</a>
 
