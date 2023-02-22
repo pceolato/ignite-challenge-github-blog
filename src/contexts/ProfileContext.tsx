@@ -17,6 +17,7 @@ interface ProfileType {
 
 interface ProfileContextType {
     profileData: ProfileType
+    fetchProfile: () => Promise<void>
 }
 
 export const ProfileContext = createContext({} as ProfileContextType)
@@ -39,11 +40,8 @@ export function ProfileProvider({ children }: ProfileProviderProps) {
 
     }
     
-    useEffect(() => {
-        fetchProfile()
-    }, [])
     return (
-        <ProfileContext.Provider value={{profileData}}>
+        <ProfileContext.Provider value={{ profileData, fetchProfile }}>
             { children }
         </ProfileContext.Provider>
     )
